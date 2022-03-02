@@ -104,8 +104,6 @@ export const FloatButton = styled.button`
   bottom: 32px;
   right: 32px;
 
-  cursor: pointer;
-
   transition: 0.5s;
 
   &:hover {
@@ -114,20 +112,20 @@ export const FloatButton = styled.button`
 
   ${mq({
 		width: [
-			'35px',
-			'50px',
+			'54px',
+			'54px',
 			'100px',
 			'100px'
 		],
 		height: [
-			'35px',
-			'50px',
+			'54px',
+			'54px',
 			'100px',
 			'100px'
 		],
 		borderRadius: [
-			'35px',
-			'50px',
+			'54px',
+			'54px',
 			'100px',
 			'100px' 
 		],
@@ -136,6 +134,12 @@ export const FloatButton = styled.button`
 			'24px',
 			'50px',
 			'50px'
+		],
+		cursor: [
+			'none', 
+			'none', 
+			'pointer', 
+			'pointer'
 		]
 	})}
 `

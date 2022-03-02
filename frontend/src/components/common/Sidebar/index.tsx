@@ -3,9 +3,6 @@ import React, {
 	useState 
 } from 'react'
 
-// Assets
-import ReactIcon from '../../../assets/images/reactjs-icon.svg'
-
 // Styled
 import {
 	ButtonMenu,
@@ -28,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 	return (
 		<Container isActive={isActive}>
 			<ContentImage isActive={isActive}>
-				<ReactIcon />
+				<img src='/images/reactjs-icon.svg' alt='react icon' />
 			</ContentImage>
 			<Content isActive={isActive}>
 				<h5>MENU</h5>

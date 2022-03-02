@@ -24,7 +24,7 @@ interface ButtonProps {
 
   marginTop?: string
   marginBottom?: string
-  marignLeft?: string
+  marginLeft?: string
   marginRight?: string
 
   color?: string
@@ -57,7 +57,7 @@ const Button: React.FC<ButtonProps> = ({
 	paddingHorizontal,
 	marginTop,
 	marginBottom,
-	marignLeft,
+	marginLeft,
 	marginRight,
 	color,
 	colorActive,
@@ -85,7 +85,7 @@ const Button: React.FC<ButtonProps> = ({
 			maxHeight={maxHeight}
 			marginTop={marginTop}
 			marginBottom={marginBottom}
-			marignLeft={marignLeft}
+			marginLeft={marginLeft}
 			marginRight={marginRight}
 			paddingVertical={paddingVertical}
 			paddingHorizontal={paddingHorizontal}

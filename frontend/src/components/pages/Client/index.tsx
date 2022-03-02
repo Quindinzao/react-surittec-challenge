@@ -5,6 +5,7 @@ import React, {
 
 // Components
 import Sidebar from '../../common/Sidebar'
+import ClientModal from './components/ClientModal'
 
 // Services
 import api from '../../../services/api'
@@ -20,6 +21,12 @@ import {
 } from './styles'
 
 const Client: React.FC = () => {
+	const [ isOpenClientModal, setIsOpenClientModal ] = useState(false)
+
+	const handleCloseClientModal = () => {
+		setIsOpenClientModal(false)
+	}
+
 	const [ clients, setClients ] = useState([])
 
 	useEffect(() => {
@@ -29,9 +36,7 @@ const Client: React.FC = () => {
 			.catch((err) => {
 				console.log('Opa! Parece que houve um erro em ', err)
 			})
-	}, [])
-
-	console.log('clients: ', clients)
+	}, [ clients ])
 
 	return (
 		<Container>
@@ -57,7 +62,15 @@ const Client: React.FC = () => {
 					})}
 				</Grid>
 			</Content>
-			<FloatButton onClick={() => null}>+</FloatButton>
+			<FloatButton 
+				onClick={() => setIsOpenClientModal(true)}
+			>
+				+
+			</FloatButton>
+			<ClientModal
+				isOpen={isOpenClientModal}
+				onRequestClose={handleCloseClientModal}
+			/>
 		</Container>
 	)
 }

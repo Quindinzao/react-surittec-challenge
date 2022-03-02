@@ -14,7 +14,7 @@ interface ButtonProps {
 
   marginTop?: string
   marginBottom?: string
-  marignLeft?: string
+  marginLeft?: string
   marginRight?: string
 
   color?: string
@@ -37,7 +37,7 @@ export const Container = styled.button<ButtonProps>`
   max-height: ${props => props.maxHeight};
   margin-top: ${props => props.marginTop};
   margin-bottom: ${props => props.marginBottom};
-  margin-left: ${props => props.marignLeft};
+  margin-left: ${props => props.marginLeft};
   margin-right: ${props => props.marginRight};
   padding-left: ${props => props.paddingHorizontal};
   padding-right: ${props => props.paddingHorizontal};
@@ -50,6 +50,7 @@ export const Container = styled.button<ButtonProps>`
   border-start-start-radius: ${props => props.borderTopLeftRadius};
   border-start-end-radius: ${props => props.borderTopRightRadius};
   text-decoration: ${props => props.textDecoration};
+  letter-spacing: 2px;
   text-align: center;
   cursor: pointer;
   transition: .5s;

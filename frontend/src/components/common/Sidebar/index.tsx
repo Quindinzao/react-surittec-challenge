@@ -18,13 +18,11 @@ import {
 interface SidebarProps {
   home?: boolean
 	client?: boolean
-	registerClient?: boolean
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
 	home,
-	client,
-	registerClient
+	client
 }) => {
 	const [ isActive, setIsActive ] = useState(false)
 	return (
@@ -35,13 +33,10 @@ const Sidebar: React.FC<SidebarProps> = ({
 			<Content isActive={isActive}>
 				<h5>MENU</h5>
 				<Link href='/' isActive={home}>
-          HOME
+          INÍCIO
 				</Link>
 				<Link href='/client' isActive={client}>
-          CLIENT
-				</Link>
-				<Link href='/registerclient' isActive={registerClient}>
-          REGISTER CLIENT
+          CLIENTE
 				</Link>
 			</Content>
 			<ButtonMenu onClick={() => setIsActive(!isActive)}>

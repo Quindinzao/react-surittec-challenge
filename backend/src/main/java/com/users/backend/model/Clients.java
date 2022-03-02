@@ -10,17 +10,32 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Users {
+public class Clients {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private Long id;
 
   @Column(nullable = false)
-  private String username;
+  private String name;
 
   @Column(nullable = false)
-  private String password;
+  private String cpf;
 
   @Column(nullable = false)
-  private String type;
+  private String cep;
+
+  @Column(nullable = false)
+  private String log;
+
+  @Column(nullable = false)
+  private String district;
+
+  @Column(nullable = false)
+  private String city;
+
+  @Column(nullable = false)
+  private String uf;
+
+  @Column(nullable = true)
+  private String complement;
 }

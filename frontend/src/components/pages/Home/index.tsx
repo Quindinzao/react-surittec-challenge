@@ -18,8 +18,8 @@ const Home: React.FC = () => {
 				<Sidebar home={true} />
 			</SidebarContent>
 			<Content>
-				<h2>ReactJS Structure</h2>
-				<h5>A ReactJS + Next.js structure made by Quindinzão.</h5>
+				<h2>Next.js Structure</h2>
+				<h5>A Next.js + Spring Boot structure made by Quindinzão.</h5>
 			</Content>
 		</Container>
 	)

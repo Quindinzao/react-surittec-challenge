@@ -1,7 +1,3 @@
-import {
-	type 
-} from 'os'
-
 const clientchatbot = [
 	{
 		id: 0,

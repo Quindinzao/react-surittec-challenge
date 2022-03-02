@@ -1,5 +1,6 @@
 // External libraries
 import React, {
+	useEffect,
 	useState
 } from 'react'
 import ReactModal from 'react-modal'
@@ -30,6 +31,7 @@ const ClientModal: React.FC<ClientModalProps> = ({
 	onRequestClose
 }) => {
 	const [ id, setId ] = useState(0)
+	const [ placeholderInput, setPlaceholderInput ] = useState('')
 	const [ name, setName ] = useState(null)
 	const [ cpf, setCpf ] = useState(null)
 	const [ cep, setCep ] = useState(null)
@@ -52,6 +54,25 @@ const ClientModal: React.FC<ClientModalProps> = ({
 		})
 	}
 
+	useEffect(() => {
+		if (clientchatbot[id].id === 0) 
+			setPlaceholderInput('Nome')
+		else if (clientchatbot[id].id === 1)
+			setPlaceholderInput('CPF')
+		else if (clientchatbot[id].id === 2)
+			setPlaceholderInput('CEP')
+		else if (clientchatbot[id].id === 3)
+			setPlaceholderInput('Logradouro')
+		else if (clientchatbot[id].id === 4)
+			setPlaceholderInput('Bairro')
+		else if (clientchatbot[id].id === 5)
+			setPlaceholderInput('UF')
+		else if (clientchatbot[id].id === 6)
+			setPlaceholderInput('Cidade')
+		else if (clientchatbot[id].id === 8)
+			setPlaceholderInput('Complemento')
+	})
+	
 	return (
 		<ReactModal
 			isOpen={isOpen}
@@ -67,36 +88,52 @@ const ClientModal: React.FC<ClientModalProps> = ({
 					<Questions question={clientchatbot[id].question} />
 				</Content>
 				{clientchatbot[id].type === 'string' && 
-				<Input
-					placeholder='Answer'
-					onChange={event => (event.target.value)}
-					type='text'
-					name='answer'
-					value={''}
-					width='100%'
-					height='64px'
-					paddingHorizontal='16px'
-					color={theme.colors.text}
-					backgroundColor={theme.colors.gray_300}
-					border='none'
-					borderRadius='12px'
-					borderBottomLeftRadius='12px'
-					borderTopLeftRadius='12px'
-				>
-					<Button
-						title='ENVIAR'
-						type='button'
-						height='100%'
+					<Input
+						placeholder={placeholderInput}
+						onChange={event => {
+							if (clientchatbot[id].id === 0)
+								setName(event.target.value)
+							else if (clientchatbot[id].id === 1)
+								setCpf(event.target.value)
+							else if (clientchatbot[id].id === 2)
+								setCep(event.target.value)
+							else if (clientchatbot[id].id === 3)
+								setLog(event.target.value)
+							else if (clientchatbot[id].id === 4)
+								setDistrict(event.target.value)
+							else if (clientchatbot[id].id === 5)
+								setCity(event.target.value)
+							else if (clientchatbot[id].id === 6)
+								setUf(event.target.value)
+							else if (clientchatbot[id].id === 8)
+								setComplement(event.target.value)
+						}}
+						type='text'
+						name='answer'
+						width='100%'
+						height='64px'
 						paddingHorizontal='16px'
 						color={theme.colors.text}
 						backgroundColor={theme.colors.gray_300}
 						border='none'
-						borderTopRightRadius='12px'
-						borderBottomRightRadius='12px'
-						fontSize='14px'
-						onClick={() => setId(id + 1)}
-					/>
-				</Input>
+						borderRadius='12px'
+						borderBottomLeftRadius='12px'
+						borderTopLeftRadius='12px'
+					>
+						<Button
+							title='ENVIAR'
+							type='button'
+							height='100%'
+							paddingHorizontal='16px'
+							color={theme.colors.text}
+							backgroundColor={theme.colors.gray_300}
+							border='none'
+							borderTopRightRadius='12px'
+							borderBottomRightRadius='12px'
+							fontSize='14px'
+							onClick={() => setId(id + 1)}
+						/>
+					</Input>
 				}
 				{clientchatbot[id].type === 'boolean' &&
 					<div style={{

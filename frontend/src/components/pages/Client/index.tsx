@@ -36,7 +36,7 @@ const Client: React.FC = () => {
 			.catch((err) => {
 				console.log('Opa! Parece que houve um erro em ', err)
 			})
-	}, [ clients ])
+	}, [])
 
 	return (
 		<Container>

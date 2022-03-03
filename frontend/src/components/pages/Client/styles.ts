@@ -9,11 +9,18 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
-  padding: 5rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+	${mq({
+		padding: [
+			'16px',
+			'2rem',
+			'5rem',
+			'5rem'
+		]
+	})}
 `
 
 export const SidebarContent = styled.div`

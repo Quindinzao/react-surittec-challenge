@@ -1,7 +1,10 @@
 // External libraries
 import React, {
-	useState 
+	useEffect,
+	useRef,
+	useState
 } from 'react'
+import api from '../../../services/api'
 import theme from '../../../styles/theme'
 import Button from '../../common/Button'
 import Input from '../../common/Input'
@@ -16,15 +19,27 @@ import {
 const SignIn: React.FC = () => {
 	const [ username, setUsername ] = useState('')
 	const [ password, setPassword ] = useState('')
+	const [ errMessage, setErrMessage ] = useState('')
+	const [ success, setSuccess ] = useState(false)
+
+	const handleSubmit = async (event) => {
+		event.preventDefault()
+
+		setUsername('')
+		setPassword('')
+		setSuccess(true)
+	}
+
 	return (
 		<Container>
 			<Content>
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<Input
 						placeholder='Username'
 						onChange={event => setUsername(event.target.value)}
 						type='email'
-						name='answer'
+						name='username'
+						required
 						value={username}
 						width='100%'
 						maxWidth='480px'
@@ -39,7 +54,8 @@ const SignIn: React.FC = () => {
 						placeholder='Senha'
 						onChange={event => setPassword(event.target.value)}
 						type='password'
-						name='answer'
+						name='password'
+						required
 						value={password}
 						width='100%'
 						maxWidth='480px'
